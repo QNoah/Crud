@@ -6,6 +6,7 @@ import { LoginComponent } from './paginas/login/login.component';
 import { HoofdpaginaComponent } from './paginas/hoofdpagina/hoofdpagina.component';
 import { NavComponent } from './herbruikbare-components/nav/nav.component';
 import { OverzichtComponent } from './paginas/overzicht/overzicht.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -20,6 +21,7 @@ import { OverzichtComponent } from './paginas/overzicht/overzicht.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NoopAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
