@@ -1,13 +1,20 @@
-<header class="h-16 bg-slate-700 text-white">
+<header class="h-16 bg-slate-700 text-white fixed w-full">
   <nav class="flex items-center justify-between text-lg">
     <div>
       <a href="" class="p-5">Home</a>
       <a href="overzicht">Overzicht</a>
     </div>
-    <div id="login">
-      <ul class="p-5 text-sm">
-        <a href="login">Login</a>
-      </ul>
+    <div class="p-5 login">
+      <div *ngIf="!ingelogd">
+        <a href="login"
+          ><mat-icon aria-hidden="false" fontIcon="login"></mat-icon
+        ></a>
+      </div>
+      <div *ngIf="ingelogd">
+        <a href="login"
+          ><mat-icon aria-hidden="false" fontIcon="logout"></mat-icon
+        ></a>
+      </div>
     </div>
   </nav>
 </header>
