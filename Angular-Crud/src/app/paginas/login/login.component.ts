@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,9 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  ingelogd: boolean;
-login(){
-  this.ingelogd = true;
-  
-}
+  constructor(private authService: AuthService, private router: Router){}
+
+  login(){
+    this.authService.login();
+    this.router.navigate(['/']);
+  }
 }
