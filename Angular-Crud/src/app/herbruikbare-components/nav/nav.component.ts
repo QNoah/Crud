@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -8,16 +8,20 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit{
-ingelogd: boolean = false;
-constructor(private authService: AuthService){}
+ingelogd: boolean;
+
+constructor(private router: Router, private cdr: ChangeDetectorRef){}
 
 ngOnInit(): void {
-  this.authService.isIngelogd.subscribe(status => {
-    this.ingelogd = status;
-  });
+  this.ingelogd = !!localStorage.getItem('token');
 }
 
+
+
 loguit() {
-  this.authService.loguit();
+localStorage.removeItem('token');
+this.ingelogd = false;
+this.router.navigate(['']);
+this.cdr.detectChanges(); // UI-update forceren
 }
 }

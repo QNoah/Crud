@@ -8,10 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private authService: AuthService, private router: Router){}
+  constructor(private router: Router){}
 
-  login(){
-    this.authService.login();
-    this.router.navigate(['/']);
+  login() {
+    // Hier voeg je je eigen login-validatie toe
+    // Voor nu, laten we aannemen dat de inloggegevens correct zijn en een token teruggeven
+    const token = 'example_token';
+    localStorage.setItem('token', token);
+    this.router.navigate(['/overzicht']); // Navigeer naar het dashboard na het inloggen
   }
 }

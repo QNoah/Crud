@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,17 +7,21 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   private ingelogd = new BehaviorSubject<boolean>(false);
 
-  get isIngelogd() {
+  get isIngelogd(): Observable<boolean> {
     return this.ingelogd.asObservable();
   }
 
+  get ingelogdWaarde(): boolean {
+    return this.ingelogd.value;
+  }
+
   login() {
-    // Hier voeg je je login-logica toe
+    // Voeg hier je eigen login-logica toe
     this.ingelogd.next(true);
   }
 
   loguit() {
-    // Hier voeg je je logout-logica toe
+    // Voeg hier je eigen logout-logica toe
     this.ingelogd.next(false);
   }
 }

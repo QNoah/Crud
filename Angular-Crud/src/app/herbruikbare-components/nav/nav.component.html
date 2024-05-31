@@ -5,14 +5,13 @@
       <a href="overzicht">Overzicht</a>
     </div>
     <div class="p-5 login">
-      <div *ngIf="!ingelogd">
-        <a href="login"
+      <div *ngIf="ingelogd === false;">
+        <a href="login" class="cursor-pointer"
           ><mat-icon aria-hidden="false" fontIcon="login"></mat-icon
         ></a>
       </div>
-      <div *ngIf="ingelogd">
-        <a href="login"
-          ><mat-icon aria-hidden="false" fontIcon="logout"></mat-icon
+      <div *ngIf="ingelogd === true;">
+        <a (click)="loguit()" class="cursor-pointer"><mat-icon aria-hidden="false" fontIcon="logout"></mat-icon
         ></a>
       </div>
     </div>
