@@ -8,6 +8,7 @@ import { NavComponent } from './herbruikbare-components/nav/nav.component';
 import { OverzichtComponent } from './paginas/overzicht/overzicht.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
+import { UitgelogtComponent } from './paginas/uitgelogt/uitgelogt.component';
 
 
 
@@ -19,6 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
     HoofdpaginaComponent,
     NavComponent,
     OverzichtComponent,
+    UitgelogtComponent,
   ],
   imports: [
     BrowserModule,

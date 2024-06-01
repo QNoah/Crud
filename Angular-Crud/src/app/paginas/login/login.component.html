@@ -8,7 +8,7 @@
             </div>
             <div>
               <label for="password" class="block text-base mb-2 text-white">Wachtwoord*</label>
-              <input id="password" class="p-2 text-sm rounded-md border border-gray-500 w-full h-1/2" type="password"/>
+              <input id="password" class="p-2 text-sm rounded-md border border-gray-500 w-full h-1/2" type="password" (keydown.enter)="login();"/>
             </div>
             <button class="flex justify-start" (click)="login();">Login</button>
           </div>
