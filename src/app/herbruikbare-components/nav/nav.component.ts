@@ -18,14 +18,14 @@ export class NavComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.subscription = this.authService.getLoggedInStatus().subscribe(status => {
+    this.subscription = this.authService.ontvangInlogstatus().subscribe(status => {
       this.ingelogd = status;
     });
   }
 
   loguit(): void {
     this.authService.loguit();
-    this.router.navigate(['loguit-succes']);
+    this.router.navigate(['Loguit-succes']);
   }
 
   ngOnDestroy(): void {

@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { UitgelogtComponent } from './paginas/uitgelogt/uitgelogt.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { DashboardComponent } from './paginas/dashboard/dashboard.component';
 
 
 
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     NavComponent,
     OverzichtComponent,
     UitgelogtComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

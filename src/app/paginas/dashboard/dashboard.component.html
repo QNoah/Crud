@@ -1,0 +1,25 @@
+<div class="flex justify-center h-1/4 items-center">
+<div class="w-3/4 flex justify-center bg-white flex-col text-center rounded-md">
+    <h1 class="text-xl p-1">Dashboard</h1>
+    <hr>
+    <div class="grid grid-cols-5">
+        <h2 class="font-medium pt-1">Id</h2>
+        <h2 class="font-medium pt-1">Naam</h2>
+        <h2 class="font-medium pt-1">Beschrijving</h2>
+        <h2 class="font-medium pt-1">Acties</h2>
+    </div>
+    <hr>
+    <div class="grid grid-cols-5 items-center">
+        <p class="p-1">1</p>
+        <p class="p-1">data.naam</p>
+        <p class="text-ellipsis whitespace-nowrap overflow-hidden p-1" title="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate eum commodi dolore temporibus voluptas, molestiae enim totam, assumenda vel quod odit minus quia animi fuga!">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate eum commodi dolore temporibus voluptas, molestiae enim totam, assumenda vel quod odit minus quia animi fuga!</p>
+        <div class="acties flex items-center justify-center">
+            <mat-icon fontIcon="edit" class="hover:cursor-pointer" (click)="bewerken()"></mat-icon>
+            <mat-icon fontIcon="close" class="hover:cursor-pointer text-red-600" (click)="verwijderen();"></mat-icon>
+        </div>
+        <div class="flex justify-center h-full items-center">
+            <mat-icon fontIcon="visibility" class="hover:cursor-pointer text-green-500" (click)="verwijderen();"></mat-icon>
+        </div>
+    </div>
+</div>
+</div>

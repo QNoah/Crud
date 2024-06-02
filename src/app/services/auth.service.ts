@@ -20,12 +20,12 @@ export class AuthService {
     return this.ingelogdSubject.value;
   }
 
-  getLoggedInStatus(): Observable<boolean> {
+  ontvangInlogstatus(): Observable<boolean> {
     return this.ingelogdSubject.asObservable();
   }
 
   login(gebruikersnaam: string, wachtwoord: string): Observable<boolean> {
-    return this.http.get<Gebruiker[]>(`http://localhost:3000/users?gebruikersnaam=${gebruikersnaam}&wachtwoord=${wachtwoord}`)
+    return this.http.get<Gebruiker[]>(`http://localhost:3000/gebruikers?gebruikersnaam=${gebruikersnaam}&wachtwoord=${wachtwoord}`)
       .pipe(
         map(gebruikers => {
           const gebruiker = gebruikers.find(g => g.gebruikersnaam === gebruikersnaam && g.wachtwoord === wachtwoord);

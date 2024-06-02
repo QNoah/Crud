@@ -5,12 +5,14 @@ import { HoofdpaginaComponent } from './paginas/hoofdpagina/hoofdpagina.componen
 import { OverzichtComponent } from './paginas/overzicht/overzicht.component';
 import { AuthGuard } from './guards/auth-guard.guard';
 import { UitgelogtComponent } from './paginas/uitgelogt/uitgelogt.component';
+import { DashboardComponent } from './paginas/dashboard/dashboard.component';
 
 const routes: Routes = [
   {path: '', component: HoofdpaginaComponent},
-  {path: 'overzicht', component: OverzichtComponent, canActivate: [AuthGuard]},
-  {path: 'login', component: LoginComponent},
-  {path: 'loguit-succes', component: UitgelogtComponent},
+  {path: 'Overzicht', component: OverzichtComponent},
+  {path: 'Dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'Login', component: LoginComponent},
+  {path: 'Loguit-succes', component: UitgelogtComponent},
 ];
 
 @NgModule({

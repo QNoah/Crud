@@ -24,7 +24,7 @@ export class LoginComponent {
         .login(this.gebruikersnaam, this.wachtwoord)
         .subscribe((success) => {
           if (success) {
-            this.router.navigate(['overzicht']); // Navigeer naar het dashboard na het inloggen
+            this.router.navigate(['Dashboard']); // Navigeer naar het dashboard na het inloggen
           } else {
             this.onjuist_alert = true;
           }
