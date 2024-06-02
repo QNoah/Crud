@@ -5,15 +5,30 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private router: Router, private authservice: AuthService){}
+  gebruikersnaam: string = '';
+  wachtwoord: string = '';
+  onjuist_alert = false;
+  nietIngevuld = false;
+
+  constructor(private router: Router, private authservice: AuthService) {}
 
   login() {
-    // Hier voeg je je eigen login-validatie toe
-    // Voor nu, laten we aannemen dat de inloggegevens correct zijn en een token teruggeven
-    this.authservice.login();
-    this.router.navigate(['overzicht']); // Navigeer naar het dashboard na het inloggen
+    if (this.gebruikersnaam === '' || this.wachtwoord === '') {
+      this.nietIngevuld = true;
+      return;
+    } else {
+      this.authservice
+        .login(this.gebruikersnaam, this.wachtwoord)
+        .subscribe((success) => {
+          if (success) {
+            this.router.navigate(['overzicht']); // Navigeer naar het dashboard na het inloggen
+          } else {
+            this.onjuist_alert = true;
+          }
+        });
+    }
   }
 }

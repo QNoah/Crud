@@ -25,7 +25,7 @@ export class NavComponent implements OnInit, OnDestroy {
 
   loguit(): void {
     this.authService.loguit();
-    this.router.navigate(['/login']);
+    this.router.navigate(['loguit-succes']);
   }
 
   ngOnDestroy(): void {

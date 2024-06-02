@@ -9,6 +9,8 @@ import { OverzichtComponent } from './paginas/overzicht/overzicht.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import { UitgelogtComponent } from './paginas/uitgelogt/uitgelogt.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -27,6 +29,8 @@ import { UitgelogtComponent } from './paginas/uitgelogt/uitgelogt.component';
     AppRoutingModule,
     NoopAnimationsModule,
     MatIconModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

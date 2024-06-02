@@ -1,33 +1,47 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { User } from '../modelen/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private ingelogdSleutel = 'ingelogd';
-  private loggedInSubject: BehaviorSubject<boolean>;
+  private ingelogdSubject: BehaviorSubject<boolean>;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     const loginStatus = localStorage.getItem(this.ingelogdSleutel) === 'true';
-    this.loggedInSubject = new BehaviorSubject<boolean>(loginStatus);
+    this.ingelogdSubject = new BehaviorSubject<boolean>(loginStatus);
   }
 
   isIngelogd(): boolean {
-    return this.loggedInSubject.value;
+    return this.ingelogdSubject.value;
   }
 
-  getLoggedInStatus() {
-    return this.loggedInSubject.asObservable();
+  getLoggedInStatus(): Observable<boolean> {
+    return this.ingelogdSubject.asObservable();
   }
 
-  login(): void {
-    localStorage.setItem(this.ingelogdSleutel, 'true');
-    this.loggedInSubject.next(true);
+  login(gebruikersnaam: string, wachtwoord: string): Observable<boolean> {
+    return this.http.get<User[]>(`http://localhost:3000/users?gebruikersnaam=${gebruikersnaam}&wachtwoord=${wachtwoord}`)
+      .pipe(
+        map(gebruikers => {
+          const gebruiker = gebruikers.find(g => g.gebruikersnaam === gebruikersnaam && g.wachtwoord === wachtwoord);
+          if (gebruiker) {
+            localStorage.setItem(this.ingelogdSleutel, 'true');
+            this.ingelogdSubject.next(true);
+            return true;
+          } else {
+            return false;
+          }
+        })
+      );
   }
 
   loguit(): void {
     localStorage.removeItem(this.ingelogdSleutel);
-    this.loggedInSubject.next(false);
+    this.ingelogdSubject.next(false);
   }
 }
