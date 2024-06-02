@@ -12,7 +12,9 @@
     </div>
     <hr />
     <div
-      class="grid grid-cols-4 items-center hover:bg-slate-100" *ngFor="let item of data" >
+      class="grid grid-cols-4 items-center hover:bg-slate-100"
+      *ngFor="let item of data"
+    >
       <p class="p-1">{{ item.id }}</p>
       <p class="p-1">{{ item.naam }}</p>
       <p
@@ -22,18 +24,27 @@
         {{ item.beschrijving }}
       </p>
       <div class="acties flex items-center justify-center">
-        <!-- <mat-icon fontIcon="edit" class="hover:cursor-pointer" (click)="bewerken()"></mat-icon> -->
-        <mat-icon fontIcon="open_in_new" [routerLink]="['/data/id/', item.id]" class="hover:cursor-pointer text-gray-300"></mat-icon>
+        <mat-icon
+          fontIcon="open_in_new"
+          [routerLink]="['/data/id/', item.id]"
+          class="hover:cursor-pointer text-gray-300"
+          title="Data openen...."
+        ></mat-icon>
         <mat-icon
           fontIcon="close"
           class="hover:cursor-pointer text-red-600"
           (click)="verwijderOpId(item.id)"
+          title="Data verwijderen...."
         ></mat-icon>
-        
       </div>
     </div>
     <div class="flex justify-center">
-      <mat-icon fontIcon="post_add" class="text-gray-300 hover:cursor-pointer" [routerLink]="['/data/id/', volgendeId]"></mat-icon>
+      <mat-icon
+        fontIcon="post_add"
+        class="text-gray-300 hover:cursor-pointer"
+        [routerLink]="['/data/id/', volgendeId]"
+        title="Nieuwe data toevoegen.."
+      ></mat-icon>
     </div>
   </div>
 </div>
