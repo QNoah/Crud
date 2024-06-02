@@ -17,4 +17,8 @@ export class DataService{
   verwijderOpId(id: number): Observable<any>{
     return this.http.delete(`${this.baseUrl}/data/${id}`);
   }
+
+  laadDataOpId(id: number){
+    return this.http.get<Data>(`${this.baseUrl}/data/${id}`);
+  }
 }

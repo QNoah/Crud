@@ -50,9 +50,6 @@ export class DashboardComponent implements OnInit {
     this.laadData();
   }
 
-  nieuweData(){
-    // this.dataservice.voegDataToe().subscribe()
-  }
   berekenVolgendeId(){
     if(this.data.length > 0){
       const hoogsteId = Math.max(...this.data.map(item => item.id));
