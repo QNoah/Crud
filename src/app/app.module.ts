@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './paginas/dashboard/dashboard.component';
 import { DataComponent } from './paginas/data/data.component';
+import { FoutPaginaComponent } from './paginas/fout-pagina/fout-pagina.component';
 
 
 
@@ -27,6 +28,7 @@ import { DataComponent } from './paginas/data/data.component';
     UitgelogtComponent,
     DashboardComponent,
     DataComponent,
+    FoutPaginaComponent,
   ],
   imports: [
     BrowserModule,

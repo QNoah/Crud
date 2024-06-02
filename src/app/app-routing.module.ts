@@ -7,6 +7,7 @@ import { AuthGuard } from './guards/auth-guard.guard';
 import { UitgelogtComponent } from './paginas/uitgelogt/uitgelogt.component';
 import { DashboardComponent } from './paginas/dashboard/dashboard.component';
 import { DataComponent } from './paginas/data/data.component';
+import { FoutPaginaComponent } from './paginas/fout-pagina/fout-pagina.component';
 
 const routes: Routes = [
   {path: '', component: HoofdpaginaComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'data/id/:id', component: DataComponent, canActivate: [AuthGuard]},
   {path: 'Login', component: LoginComponent},
   {path: 'Loguit-succes', component: UitgelogtComponent},
+  {path: '**', component: FoutPaginaComponent},
 ];
 
 @NgModule({
