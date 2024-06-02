@@ -1,18 +1,20 @@
 <header class="h-16 bg-slate-700 text-white fixed w-full">
   <nav class="flex items-center justify-between text-lg">
-    <div>
-      <a href="" class="p-5">Home</a>
-      <a href="overzicht">Overzicht</a>
+    <div class="[&>*]:p-5">
+      <a href="" class="hover:text-gray-300">Home</a>
+      <a href="overzicht" class="hover:text-gray-300">Overzicht</a>
+      <a href="" *ngIf="ingelogd === true" class="hover:text-gray-300">Crud</a>
     </div>
     <div class="p-5 login">
-      <div *ngIf="ingelogd === false;">
-        <a href="login" class="cursor-pointer"
-          ><mat-icon aria-hidden="false" fontIcon="login"></mat-icon
-        ></a>
+      <div *ngIf="ingelogd === false">
+        <a href="login" class="cursor-pointer">
+          <mat-icon aria-hidden="false" fontIcon="login"></mat-icon>
+        </a>
       </div>
-      <div *ngIf="ingelogd === true;">
-        <a (click)="loguit()" class="cursor-pointer"><mat-icon aria-hidden="false" fontIcon="logout"></mat-icon
-        ></a>
+      <div *ngIf="ingelogd === true">
+        <a (click)="loguit()" class="cursor-pointer">
+          <mat-icon aria-hidden="false" fontIcon="logout"></mat-icon>
+        </a>
       </div>
     </div>
   </nav>

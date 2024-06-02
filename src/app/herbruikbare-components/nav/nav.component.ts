@@ -1,27 +1,34 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit{
-ingelogd: boolean;
+export class NavComponent implements OnInit, OnDestroy {
+  ingelogd: boolean = false;
+  private subscription: Subscription;
 
-constructor(private router: Router, private cdr: ChangeDetectorRef){}
+  constructor(
+    private router: Router, 
+    private authService: AuthService
+  ) {}
 
-ngOnInit(): void {
-  this.ingelogd = !!localStorage.getItem('token');
-}
+  ngOnInit(): void {
+    this.subscription = this.authService.getLoggedInStatus().subscribe(status => {
+      this.ingelogd = status;
+    });
+  }
 
+  loguit(): void {
+    this.authService.loguit();
+    this.router.navigate(['/login']);
+  }
 
-
-loguit() {
-localStorage.removeItem('token');
-this.ingelogd = false;
-this.router.navigate(['']);
-this.cdr.detectChanges(); // UI-update forceren
-}
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

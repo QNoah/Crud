@@ -1,15 +1,16 @@
 import { CanActivate, Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authservice: AuthService) {}
 
   canActivate(): boolean {
-    if (this.isLoggedIn()) {
+    if (this.authservice.isIngelogd()) {
       return true;
     } else {
       this.router.navigate(['/login']);
@@ -17,9 +18,4 @@ export class AuthGuard implements CanActivate {
     }
   }
 
-  isLoggedIn(): boolean {
-    // Hier voeg je je eigen logica toe om te controleren of de gebruiker is ingelogd
-    // Voor nu, laten we zeggen dat de gebruiker is ingelogd als er een token in de lokale opslag is
-    return !!localStorage.getItem('token');
-  }
 }
