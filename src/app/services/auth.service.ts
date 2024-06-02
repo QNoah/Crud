@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { User } from '../modelen/user.model';
+import { Gebruiker } from '../modelen/gebruiker.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   login(gebruikersnaam: string, wachtwoord: string): Observable<boolean> {
-    return this.http.get<User[]>(`http://localhost:3000/users?gebruikersnaam=${gebruikersnaam}&wachtwoord=${wachtwoord}`)
+    return this.http.get<Gebruiker[]>(`http://localhost:3000/users?gebruikersnaam=${gebruikersnaam}&wachtwoord=${wachtwoord}`)
       .pipe(
         map(gebruikers => {
           const gebruiker = gebruikers.find(g => g.gebruikersnaam === gebruikersnaam && g.wachtwoord === wachtwoord);
