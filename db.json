@@ -1,11 +1,27 @@
 {
   "posts": [
-    { "id": "1", "title": "a title", "views": 100 },
-    { "id": "2", "title": "another title", "views": 200 }
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
   ],
-  "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+  "data": [
+    {
+      "id": "1",
+      "naam": "Appelkoek",
+      "beschrijving": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta sed debitis voluptatibus autem! Consequatur illo molestiae neque iusto nisi veniam aspernatur ipsam repellendus dolore, doloribus qui odio vel repellat, eligendi vero. Corporis incidunt repellat officia doloremque quo. Dolor, accusantium. At velit minus beatae maiores enim eum consequuntur ipsam, iste ullam."
+    },
+    {
+      "id": "2",
+      "naam": "Appelkoek",
+      "beschrijving": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta sed debitis voluptatibus autem! Consequatur illo molestiae neque iusto nisi veniam aspernatur ipsam repellendus dolore, doloribus qui odio vel repellat, eligendi vero. Corporis incidunt repellat officia doloremque quo. Dolor, accusantium. At velit minus beatae maiores enim eum consequuntur ipsam, iste ullam."
+    }
   ],
   "gebruikers": [
     {
