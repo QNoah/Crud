@@ -1,15 +1,30 @@
 <div class="flex justify-center items-center h-full" *ngIf="data">
-  <div class="bg-white rounded-md w-1/2 h-1/2 flex flex-col justify-center">
-    <div class="w-1/4 p-2">
-        <span>Id:</span>
-        <span>{{data.id}}</span>
-    </div>
-    <div class="grid pl-2 grid-cols-1">
-        <label for="naam" class="w-1/4">Naam:</label>
-        <input type="text" [(ngModel)]="data.naam" class="border rounded-md w-1/2" name="naam">
-    </div>
-    <div class="flex pl-2 pt-5">
-        <textarea [(ngModel)]="data.beschrijving" class="w-1/2 h-60 border resize-none placeholder:p-3" placeholder="Beschrijving..."></textarea>
+  <div class="w-1/2 bg-white flex justify-center h-1/2 items-center rounded-lg border-black border-2">
+    <div class="flex flex-col w-3/4">
+      <div>
+        <span class="text-xl">Id: </span>
+        <span class="text-xl">{{ data.id }}</span>
+      </div>
+      <div>
+        <label for="naam" class="pr-2 text-xl">Naam:</label>
+        <input
+          type="text"
+          name="naam"
+          class="border border-gray-500 rounded-xl p-2"
+          [(ngModel)]="data.naam"
+        />
+      </div>
+      <div class="pt-4">
+        <textarea
+          [(ngModel)]="data.beschrijving"
+          class="w-full resize-none h-44 rounded-md border text-xs p-2 border-gray-500"
+        ></textarea>
+      </div>
+      <div class="flex justify-start">
+        <button class="border rounded-md text-white bg-green-500 border-gray-500 p-1 m-1">Opslaan</button>
+        <button class="border rounded-md text-white bg-orange-500 border-gray-500 p-1 m-1">Annuleren</button>
+        <button class="border rounded-md text-white bg-red-500 border-gray-500 p-1 m-1">Verwijderen</button>
+      </div>
     </div>
   </div>
 </div>
